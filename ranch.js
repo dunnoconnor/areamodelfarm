@@ -1,3 +1,9 @@
+//declare Storage object
+const myStorage = window.localStorage;
+if(!myStorage.getItem('ranchHighScore')) {
+    myStorage.setItem('ranchHighScore', 0);
+}
+
 //declare page elements
 const gameWindow = document.querySelector(".game-window");
 const garden = document.querySelector(".garden");
@@ -65,8 +71,11 @@ const game = {
     },
     points: 0,
     round: 1,
-    highScore: 0
+    highScore: myStorage.getItem('ranchHighScore')
 };
+
+//update high score display.  this has to be done before clicking start because it persists across sessions
+highScoreDisplay.innerHTML = game.highScore;
 
 //event listener for start button and submit buttons
 numbersMenu.addEventListener("click", function(event) {
@@ -77,6 +86,9 @@ numbersMenu.addEventListener("click", function(event) {
         startButton.classList.toggle('hidden');
         game.points = 0;
         game.round = 1;
+        levelDisplay.innerHTML=(game.round);
+        game.highScore = myStorage.getItem('ranchHighScore');
+        highScoreDisplay.innerHTML = game.highScore;
         newRound();
     } else if (event.target.classList.contains('check-button')) {
         //event propagation for four partial area buttons
@@ -126,9 +138,10 @@ function checkArea(a){
         points(false);
     }  
     //advance to next round or end the game
-    game.round++;
-    levelDisplay.innerHTML=(game.round);
+    
     if(game.round<5){
+        game.round++;
+        levelDisplay.innerHTML=(game.round);
         newRound();
     } else {
         endGame();
@@ -281,7 +294,8 @@ function points(gain){
         pointsDisplay.classList = ("correct");
         if (game.highScore<game.points){
             game.highScore = game.points;
-            highScoreDisplay.innerText = game.highScore;
+            highScoreDisplay.innerHTML = game.highScore;
+            myStorage.setItem('ranchHighScore', game.highScore);
         }
     } else {
         incorrect.play();
@@ -297,7 +311,8 @@ function endGame(){
         game.highScore = game.points;
     }
     problemDisplay.innerHTML = "";
-    highScoreDisplay.innerText = game.highScore;
+    highScoreDisplay.innerHTML = game.highScore;
+    myStorage.setItem('ranchHighScore', game.highScore);
     pointsDisplay.innerHTML = 0;
     pointsDisplay.classList = ("");
     instructions.innerHTML = "Click Start to Play Again";

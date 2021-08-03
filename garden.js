@@ -1,3 +1,9 @@
+//declare Storage object
+const myStorage = window.localStorage;
+if(!myStorage.getItem('gardenHighScore')) {
+    myStorage.setItem('gardenHighScore', 0);
+}
+
 //declare page elements
 const gameWindow = document.querySelector(".game-window");
 const garden = document.querySelector(".garden");
@@ -64,14 +70,20 @@ const game = {
     columns: 0,
     points: 0,
     round: 1,
-    highScore: 0
+    highScore: myStorage.getItem('gardenHighScore')
 };
+
+//update high score display.  this has to be done before clicking start because it persists across sessions
+highScoreDisplay.innerHTML = game.highScore;
 
 //Start a new round when Start button is clicked
 startButton.addEventListener("click", function(event){
     event.preventDefault();
     game.points = 0;
     game.round = 1;
+    levelDisplay.innerHTML = game.round;
+    game.highScore = myStorage.getItem('gardenHighScore');
+    highScoreDisplay.innerHTML = game.highScore;
     displays.classList.toggle('hidden');
     startButton.classList.toggle('hidden');
     newRound();
@@ -145,9 +157,9 @@ function checkArea(a){
     columnDisplay.classList.toggle('hidden');
 
     //advance to next round or end the game
-    game.round++;
-    levelDisplay.innerHTML=(game.round);
     if(game.round<5){
+        game.round++;
+        levelDisplay.innerHTML=(game.round);
         newRound();
     } else {
         endGame();
@@ -208,7 +220,8 @@ function points(gain){
         pointsDisplay.classList = ("correct");
         if (game.highScore<game.points){
             game.highScore = game.points;
-            highScoreDisplay.innerText = game.highScore;
+            highScoreDisplay.innerHTML = game.highScore;
+            myStorage.setItem('gardenHighScore', game.highScore);
         }
     } else {
         incorrect.play();
@@ -220,6 +233,11 @@ function points(gain){
 
 //Resolve the end of the game
 function endGame(){
+    if (game.highScore<game.points){
+        game.highScore = game.points;
+    }
+    highScoreDisplay.innerHTML = game.highScore;
+    myStorage.setItem('gardenHighScore', game.highScore);
     pointsDisplay.innerHTML = 0;
     pointsDisplay.classList = ("");
     instructions.innerHTML = "Click Start to Play Again";

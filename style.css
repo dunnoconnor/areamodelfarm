@@ -91,6 +91,10 @@ button, input {
     background-color: white;
 }
 
+input {
+    font-size: 16px;
+}
+
 #start-button{
     width: 50%;
 }
@@ -230,7 +234,7 @@ h1{
 
 #modal-textbox {
 	background-color: white;
-	height: 80%;
+	height: 60%;
 	width: 80%;
     margin: 10vh auto; 
     padding: 5vh 5vw;
@@ -240,11 +244,9 @@ h1{
 }
 
 .modal-img {
-    width:50%;
-    height: auto;
+    height: 20%;
+    width: auto;
 }
-
-
 
 @media only screen and (max-width: 700px) {
     #game-window{
@@ -284,5 +286,13 @@ h1{
         justify-content: space-around;
         align-items: center;
     }
+    #modal-textbox {
+        height: 75%;
+    }
+    .modal-img {
+        height: 15%;
+        width: auto;
+    }
+    
 
 }
