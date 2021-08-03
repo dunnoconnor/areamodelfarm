@@ -230,8 +230,8 @@ h1{
 
 #modal-textbox {
 	background-color: white;
-	height: 70%;
-	width: 75%;
+	height: 80%;
+	width: 80%;
     margin: 10vh auto; 
     padding: 5vh 5vw;
 	border-radius: 10px;
@@ -240,8 +240,7 @@ h1{
 }
 
 .modal-img {
-    margin: 1em;
-    width:250px;
+    width:50%;
     height: auto;
 }
 

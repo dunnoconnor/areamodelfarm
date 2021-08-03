@@ -1,6 +1,6 @@
 # Area Model Farm
 
-**Area Model Farm** is an interactive math visual written in JavaScript and HTML5.
+[**Area Model Farm**](https://dunnoconnor.github.io/areamodelfarm/) is an interactive math visual written in JavaScript and HTML5.
 
 ## Features
 **Area Model Farm** includes two game modes:
@@ -11,7 +11,7 @@
 For feedback and suggestions, you can email me at: moconnor8 at gmail dot com.
 
 ## Prior Versions
-This project was initially part of [my main github pages repository](https://dunnoconnor.github.io/).  You can view early commits [here](https://github.com/dunnoconnor/dunnoconnor.github.io)
+This project was initially part of [my main github pages repository](https://dunnoconnor.github.io/).  You can view early commits [here](https://github.com/dunnoconnor/dunnoconnor.github.io).
 
 ## Credits
 - Design and Code by Michael Dunn-O'Connor
