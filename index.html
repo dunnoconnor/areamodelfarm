@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Model Farm</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./assets/plant.jpeg"/>
+
+</head>
+<body>
+
+    <div id="menu-page">
+        <div id="header">
+            <h1 id="main-title">Welcome to Area Model Farm!</h1>
+        </div>
+
+        <div id="main-menu">
+
+            <div class="sub-menu">
+                <img class="menu-img" id="garden-img" src="./assets/plant.jpeg"/>
+                <a id="garden-link" href="./garden.html"><button class="menu-button" id="garden-button">Build a Garden!</button></a>
+                <p class="menu-label">Single-Digit Multiplication</p>
+            </div>
+
+            <div class="sub-menu">
+                <img class="menu-img" id="ranch-img" src="./assets/cow.jpeg"/>
+                <a id="ranch-link" href="./ranch.html"><button class="menu-button" id="ranch-button">Build a Ranch!</button></a>
+                <p class="menu-label">Two-Digit Multiplication</p>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p id="credits">2021, Michael Dunn-O'Connor</p>
+            <button id="about-button">About the Area Model</button>
+            <button id="mute-button">&#128263</button>
+        </div>
+
+        <div id="modal" class="hidden">
+            <div id="modal-textbox">
+              <h2>The Area Model</h2>
+              <p>The Area Model is a way to break down multiplication into a series of smaller steps. To solve single digit problems,lema you can look at the prob, and then break that rectangle into smaller chunks for easier solving. This method is also known as box multiplication.</p>
+              <div id="modal-footer">
+                <button class="modal-buttons" id="close-button" href="#">X</button>
+              </div>
+            </div>
+          </div>
+        
+    <script src="menu.js"></script>
+</body>
+</html>
