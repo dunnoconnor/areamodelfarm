@@ -1,6 +1,9 @@
 //declare page elements
 const gameWindow = document.querySelector(".game-window");
 const garden = document.querySelector(".garden");
+const aboutButton = document.querySelector("#about-button");
+const closeButton = document.querySelector("#close-button");
+const modal = document.querySelector("#modal");
 
 //declare prompts
 const instructions = document.querySelector("#instructions");
@@ -237,4 +240,14 @@ muteButton.addEventListener("click", function(event){
         muteButton.innerHTML = "&#128263";
         music.pause();
     }
+});
+
+//show about modal
+aboutButton.addEventListener("click", function(event){
+    modal.classList = ("");
+});
+
+//hide about modal
+closeButton.addEventListener("click", function(event){
+    modal.classList = ('hidden');
 });

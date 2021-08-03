@@ -230,12 +230,22 @@ h1{
 
 #modal-textbox {
 	background-color: white;
-	height: 50%;
+	height: 70%;
 	width: 75%;
     margin: 10vh auto; 
+    padding: 5vh 5vw;
 	border-radius: 10px;
+    line-height: 150%;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
+
+.modal-img {
+    margin: 1em;
+    width:250px;
+    height: auto;
+}
+
+
 
 @media only screen and (max-width: 700px) {
     #game-window{

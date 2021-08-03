@@ -26,10 +26,12 @@ muteButton.addEventListener("click", function(event){
     }
 });
 
+//show about modal
 aboutButton.addEventListener("click", function(event){
     modal.classList = ("");
 });
 
+//hide about modal
 closeButton.addEventListener("click", function(event){
     modal.classList = ('hidden');
 });

@@ -1,6 +1,9 @@
 //declare page elements
 const gameWindow = document.querySelector(".game-window");
 const garden = document.querySelector(".garden");
+const aboutButton = document.querySelector("#about-button");
+const closeButton = document.querySelector("#close-button");
+const modal = document.querySelector("#modal");
 
 //declare prompts
 const instructions = document.querySelector("#instructions");
@@ -16,6 +19,7 @@ const areaInput = document.querySelector("#area-input");
 //declare inputs and displays to iterate over/ clear later
 const allInputs = document.querySelectorAll(".input");
 const allDisplays = document.querySelectorAll(".display");
+const problemDisplay = document.querySelector("#problem-display");
 
 //rows to store pasture divs
 const row0 = document.querySelector("#ranch-row-0");
@@ -73,7 +77,6 @@ numbersMenu.addEventListener("click", function(event) {
         startButton.classList.toggle('hidden');
         game.points = 0;
         game.round = 1;
-        instructions.innerHTML = "Add the four partial areas together to get the total area."
         newRound();
     } else if (event.target.classList.contains('check-button')) {
         //event propagation for four partial area buttons
@@ -88,6 +91,11 @@ numbersMenu.addEventListener("click", function(event) {
         partialArea(targetID,targetAnswer);
         let nextID = prompts[(prompts.indexOf(targetID))+1]
         let nextDiv = document.querySelector(`#${nextID}-div`);
+        if (nextID=="area"){
+            instructions.innerHTML = `Area = A + B + C + D`;
+        } else {
+            instructions.innerHTML = `Find the area of pasture ${nextID.toUpperCase()}`;
+        }
         nextDiv.classList.toggle('hidden');
     } else if (event.target.id=="submit"){
         //check total area answer
@@ -155,6 +163,9 @@ function newRound(){
         i.innerHTML = "";
     }
 
+    //displays the equation to be solved
+    problemDisplay.innerHTML = (`${game.rowTens+game.rowOnes} * ${game.columnTens+game.columnOnes} = ?`);
+    instructions.innerHTML = "Find the area of pasture A";
     //populate garden with pastures
     generatePastures();
 
@@ -285,6 +296,7 @@ function endGame(){
     if (game.highScore<game.points){
         game.highScore = game.points;
     }
+    problemDisplay.innerHTML = "";
     highScoreDisplay.innerText = game.highScore;
     pointsDisplay.innerHTML = 0;
     pointsDisplay.classList = ("");
@@ -306,4 +318,14 @@ muteButton.addEventListener("click", function(event){
         muteButton.innerHTML = "&#128263";
         music.pause();
     }
+});
+
+//show about modal
+aboutButton.addEventListener("click", function(event){
+    modal.classList = ("");
+});
+
+//hide about modal
+closeButton.addEventListener("click", function(event){
+    modal.classList = ('hidden');
 });
