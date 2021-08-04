@@ -206,6 +206,7 @@ function generateBoxes(){
 
         let plantImg = document.createElement('img');
         plantImg.classList.add("plant-img");
+        plantImg.alt = "plant";
         plantImg.src = plants[randPlant];
         newBox.appendChild(plantImg);
         }
@@ -240,7 +241,7 @@ function endGame(){
     myStorage.setItem('gardenHighScore', game.highScore);
     pointsDisplay.innerHTML = 0;
     pointsDisplay.classList = ("");
-    instructions.innerHTML = "Click Start to Play Again";
+    instructions.innerHTML = "Click Start to play again";
     startButton.classList.toggle('hidden');
     displays.classList.toggle('hidden');
   }
@@ -251,11 +252,11 @@ muteButton.addEventListener("click", function(event){
         music.muted = false;
         music.currentTime = 0;
         music.volume = 0.05;
-        muteButton.innerHTML = "&#128266";
+        muteButton.innerHTML = "&#128266;";
         music.play();
     }  else{
         music.muted = true;
-        muteButton.innerHTML = "&#128263";
+        muteButton.innerHTML = "&#128263;";
         music.pause();
     }
 });

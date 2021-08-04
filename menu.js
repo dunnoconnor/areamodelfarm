@@ -17,11 +17,11 @@ muteButton.addEventListener("click", function(event){
         music.muted = false;
         music.currentTime = 0;
         music.volume = 0.05;
-        muteButton.innerHTML = "&#128266";
+        muteButton.innerHTML = "&#128266;";
         music.play();
     }  else{
         music.muted = true;
-        muteButton.innerHTML = "&#128263";
+        muteButton.innerHTML = "&#128263;";
         music.pause();
     }
 });
