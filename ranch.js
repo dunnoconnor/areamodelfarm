@@ -106,7 +106,7 @@ numbersMenu.addEventListener("click", function(event) {
         if (nextID=="area"){
             instructions.innerHTML = `Area = A + B + C + D`;
         } else {
-            instructions.innerHTML = `Find the area of pasture ${nextID.toUpperCase()}`;
+            instructions.innerHTML = `Next, find the area of pasture ${nextID.toUpperCase()}`;
         }
         nextDiv.classList.toggle('hidden');
     } else if (event.target.id=="submit"){
@@ -177,8 +177,8 @@ function newRound(){
     }
 
     //displays the equation to be solved
-    problemDisplay.innerHTML = (`${game.rowTens+game.rowOnes} * ${game.columnTens+game.columnOnes} = ?`);
-    instructions.innerHTML = "Find the area of pasture A";
+    problemDisplay.innerHTML = (`Follow the steps to find [ ${game.rowTens+game.rowOnes} * ${game.columnTens+game.columnOnes} ]`);
+    instructions.innerHTML = "First, find the area of pasture A";
     //populate garden with pastures
     generatePastures();
 
