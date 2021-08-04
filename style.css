@@ -86,8 +86,8 @@ body{
 button, input {
     border-radius: 10px;
     text-align: center;
-    padding: 10px;
-    margin: 5px;
+    padding: 7.5px;
+    margin: 2.5px;
     background-color: white;
 }
 
@@ -114,6 +114,7 @@ button:hover, input:hover {
     height: auto;
 }
 
+
 #menu-page, #garden-page, #ranch-page{
     width: 100vw;
     height: 100vh;
@@ -126,6 +127,8 @@ button:hover, input:hover {
 
 h1{
     color: yellow;
+    font-family: 'Patrick Hand', cursive;
+
 }
 
 #header, #footer {
